@@ -1,0 +1,54 @@
+@font-face {
+	font-family: IRANSansWeb;
+	font-style: normal;
+	font-weight: normal;
+	src: url('eot/IRANSansWeb_FaNum.eot');
+	src: url('eot/IRANSansWebd41d.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('woff2/IRANSansWeb_FaNum.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('woff/IRANSansWeb_FaNum.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('ttf/IRANSansWeb_FaNum.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: IRANSansWeb_Light;
+	font-style: normal;
+	font-weight: 300;
+	src: url('eot/IRANSansWeb_FaNum_Light.eot');
+	src: url('eot/IRANSansWeb_Lightd41d.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('woff2/IRANSansWeb_FaNum_Light.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('woff/IRANSansWeb_FaNum_Light.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('ttf/IRANSansWeb_Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: IRANSansWeb_Medium;
+	font-style: normal;
+	font-weight: 500;
+	src: url('eot/IRANSansWeb_FaNum_Medium.eot');
+	src: url('eot/IRANSansWeb_Mediumd41d.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('woff2/IRANSansWeb_FaNum_Medium.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('woff/IRANSansWeb_FaNum_Medium.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('ttf/IRANSansWeb_Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: IRANSansWeb_Bold;
+	font-style: normal;
+	font-weight: bold;
+	src: url('eot/IRANSansWeb_FaNum_Bold.eot');
+	src: url('eot/IRANSansWeb_Boldd41d.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('woff2/IRANSansWeb_FaNum_Bold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('woff/IRANSansWeb_FaNum_Bold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('ttf/IRANSansWeb_Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: IRANSansWeb_Black;
+	font-style: normal;
+	font-weight: 900;
+	src: url('eot/IRANSansWeb_FaNum_Black.eot');
+	src: url('eot/IRANSansWeb_Blackd41d.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('woff2/IRANSansWeb_FaNum_Black.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('woff/IRANSansWeb_FaNum_Black.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('ttf/IRANSansWeb_Black.ttf') format('truetype');
+}
