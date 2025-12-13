@@ -1,3 +1,4 @@
+import "./swiper.js";
 import productsData from "./data/products.js";
 console.log(productsData);
 //productsData.product.name
