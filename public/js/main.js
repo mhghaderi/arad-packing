@@ -1,19 +1,101 @@
-import "./swiper.js";
-import productsData from "./data/products.js";
-console.log(productsData);
-//productsData.product.name
-const allProducts = Object.values(productsData);
-console.log(allProducts);
+// import productsData from "./data/products.js";
+// const allProducts = productsData;
 
-// sort by name alphabetically
-// allProducts.sort((a, b) => a.name.localeCompare(b.name));
+// منتظر لود کامل DOM
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM loaded, initializing scripts...");
 
+  // ===================
+  // Swiper Initialization
+  // ===================
+  if (typeof Swiper !== "undefined") {
+    // Main Slider
+    if (document.querySelector(".main-slider")) {
+      new Swiper(".main-slider", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
+      });
+      console.log("Main slider initialized");
+    }
+
+    // Category Slider
+    if (document.querySelector(".cat-slider")) {
+      new Swiper(".cat-slider", {
+        loop: true,
+        slidesPerView: 3,
+        spaceBetween: 20,
+        freeMode: true,
+        speed: 5000,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          640: { slidesPerView: 2, spaceBetween: 15 },
+          768: { slidesPerView: 4, spaceBetween: 15 },
+          1024: { slidesPerView: 7, spaceBetween: 15 },
+        },
+      });
+      console.log("Category slider initialized");
+    }
+
+    // بقیه Swiperها...
+  } else {
+    console.error("Swiper library is not loaded!");
+  }
+
+  // ===================
+  // Typed.js Initialization
+  // ===================
+
+
+  // ===================
+  // Product Cards Generation
+  // ===================
+  const container = document.getElementById("products-container");
+  if (container && window.allProducts) {
+    // کد تولید کارت محصولات
+    window.allProducts.forEach((product, index) => {
+      // ...
+    });
+    console.log("Product cards generated");
+  }
+
+  // ===================
+  // Mobile Menu Function
+  // ===================
+  window.toggleMobileDropdown = function (el) {
+    const parentLi = el.closest("li");
+    const submenu = parentLi.querySelector(".mobile-submenu");
+    const arrow = el.querySelector(".mobile-arrow");
+
+    if (!submenu) return;
+
+    submenu.classList.toggle("hidden");
+
+    if (arrow) {
+      arrow.classList.toggle("rotate-180");
+    }
+  };
+});
+
+window.toggleMobileDropdown = toggleMobileDropdown;
+
+// ===================
+// Product Cards Generation Start
+// ===================
 const container = document.getElementById("products-container");
 
 allProducts.forEach((product, index) => {
   const card = document.createElement("div");
   card.className = "product-card";
-  card.dataset.model = product.name; // برای انتقال به صفحه محصول
+  card.dataset.model = product.name;
 
   card.innerHTML = `
        <div class="bg-white transform hover:-translate-y-1 duration-300 transition-transform shadow-md">
@@ -45,26 +127,41 @@ allProducts.forEach((product, index) => {
           </div>
     `;
 
-  // if clicked
   card.addEventListener("click", () => {
     window.location.href = `single-product.html?model=${product.name}`;
   });
 
   container.appendChild(card);
 });
+// ===================
+// Product Cards Generation Start
+// ===================
 
+// ===================
+// Mobile  Dropdown Menu Start
+// ===================
 function toggleMobileDropdown(element) {
-  // پیدا کردن زیرمنو (المان بعدی بعد از دکمه کلیک شده)
   const submenu = element.nextElementSibling;
 
-  // پیدا کردن آیکون فلش داخل دکمه
   const arrow = element.querySelector(".mobile-arrow");
 
-  // باز و بسته کردن منو
   submenu.classList.toggle("open");
 
-  // چرخاندن فلش
   arrow.classList.toggle("rotate-180");
 }
+// ===================
+// Mobile  Dropdown Menu End
+// ===================
+function toggleMobileDropdown(el) {
+  const parentLi = el.closest("li");
+  const submenu = parentLi.querySelector(".mobile-submenu");
+  const arrow = el.querySelector(".mobile-arrow");
 
-// import
+  if (!submenu) return;
+
+  submenu.classList.toggle("hidden");
+
+  if (arrow) {
+    arrow.classList.toggle("rotate-180");
+  }
+}

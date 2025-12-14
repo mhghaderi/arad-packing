@@ -3,19 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       rel="stylesheet"
-      href="../node_modules/swiper/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+
     <link rel="stylesheet" href="build/style.css" />
-    <!-- <script src="./js/swiper.js" defer></script> -->
     <title>صفحه اصلی</title>
   </head>
   <body class="bg-slate-50 font-IRANSansWeb text-sm">
+    <!--
+==========================
+
+    Header Section Start  
+    
+========================== 
+-->
     <section class="bg-stone-800 py-2 px-4">
       <div class="container mx-auto max-w-screen-xl">
         <div class="flex items-center justify-between text-white text-xs">
@@ -86,6 +96,9 @@
         </div>
       </div>
     </section>
+    <!-- 
+    Header Scrolling Ticker Section 
+     -->
     <div class="our-scrolling-ticker">
       <div class="scrolling-ticker-box">
         <div class="scrolling-content">
@@ -128,7 +141,9 @@
         </div>
       </div>
     </div>
-
+    <!-- 
+    Header Navbar Section 
+     -->
     <section class="bg-white border-b px-4">
       <div class="container mx-auto max-w-screen-xl">
         <div class="flex justify-between items-center py-5">
@@ -450,7 +465,9 @@
         </div>
       </div>
     </section>
-
+    <!-- 
+    Slider Section  (HeroBox)
+     -->
     <section class="mb-16">
       <div class="swiper main-slider">
         <div class="swiper-wrapper">
@@ -480,7 +497,9 @@
         <div class="swiper-button-prev text-white mx-8 after:text-2xl"></div>
       </div>
     </section>
-
+    <!-- 
+    Product Quick Access Section 
+     -->
     <section class="mb-44">
       <div class="relative">
         <div class="bg-stone-800 h-48 p-8">
@@ -717,22 +736,21 @@
         </div>
       </div>
     </section>
-
-    <section class="px-4 mb-24">
-      <div class="container mx-auto max-w-screen-xl">
-        <div class="flex flex-col items-center justify-center mb-14">
-          <div
-            class="text-xl relative before:absolute before:bg-yellow-500 before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.50]"
-          >
-            <span class="font-IRANSansWeb_Bold relative text-2xl"
-              >درباره ما</span
-            >
+    <!-- 
+    About Us Section 
+     -->
+    <section class="about-section">
+      <div class="about-container">
+        <div class="section-header">
+          <div class="header-title-wrapper">
+            <span class="header-title">درباره ما</span>
           </div>
-          <p class="mt-2">ماشین سازی آراد | تخصص، کیفیت، نوآوری</p>
+          <p class="header-subtitle">ماشین سازی آراد | تخصص، کیفیت، نوآوری</p>
         </div>
-        <div class="grid grid-cols-12 gap-4 lg:gap-10">
-          <div class="col-span-12 lg:col-span-7 gap-4">
-            <p class="leading-8 mb-8">
+
+        <div class="about-content-grid">
+          <div class="about-text-area">
+            <p class="about-description">
               ماشین‌سازی آراد با تمرکز بر طراحی و ساخت دستگاه‌های بسته‌بندی
               صنعتی، فعالیت خود را با هدف ارائه راهکارهای دقیق، قابل‌اعتماد و
               متناسب با نیاز خطوط تولید آغاز کرده است. ما با تکیه بر دانش فنی،
@@ -743,18 +761,15 @@
               نمی‌دانیم، بلکه شریک فنی کسب‌وکار مشتریانمان هستیم؛ از تحلیل نیاز
               تا طراحی، ساخت، نصب و پشتیبانی.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div
-                class="flex cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform"
-              >
-                <div class="text-yellow-500">
+            <div class="features-grid">
+              <div class="feature-item">
+                <div class="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-10 h-10"
                   >
                     <path
                       stroke-linecap="round"
@@ -763,25 +778,22 @@
                     />
                   </svg>
                 </div>
-                <div class="mr-4">
-                  <h2 class="font-IRANSansWeb_Bold">مهندسی اختصاصی و دقیق</h2>
-                  <p class="mt-2 leading-8">
+                <div class="feature-content">
+                  <h2 class="feature-title">مهندسی اختصاصی و دقیق</h2>
+                  <p class="feature-description">
                     تمامی دستگاه‌ها بر اساس نیاز واقعی خط تولید طراحی می‌شوند،
                     نه قالب‌های از پیش‌تعیین‌شده.
                   </p>
                 </div>
               </div>
-              <div
-                class="flex cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform"
-              >
-                <div class="text-yellow-500">
+              <div class="feature-item">
+                <div class="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-10 h-10"
                   >
                     <path
                       stroke-linecap="round"
@@ -790,25 +802,22 @@
                     />
                   </svg>
                 </div>
-                <div class="mr-4">
-                  <h2 class="font-IRANSansWeb_Bold">کیفیت ساخت صنعتی</h2>
-                  <p class="mt-2 leading-8">
+                <div class="feature-content">
+                  <h2 class="feature-title">کیفیت ساخت صنعتی</h2>
+                  <p class="feature-description">
                     استفاده از متریال استاندارد، قطعات با دوام و مونتاژ دقیق
                     برای عملکرد مداوم و بدون وقفه.
                   </p>
                 </div>
               </div>
-              <div
-                class="flex cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform"
-              >
-                <div class="text-yellow-500">
+              <div class="feature-item">
+                <div class="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-10 h-10"
                   >
                     <path
                       stroke-linecap="round"
@@ -817,25 +826,22 @@
                     />
                   </svg>
                 </div>
-                <div class="mr-4">
-                  <h2 class="font-IRANSansWeb_Bold">بهره‌وری و راندمان بالا</h2>
-                  <p class="mt-2 leading-8">
+                <div class="feature-content">
+                  <h2 class="feature-title">بهره‌وری و راندمان بالا</h2>
+                  <p class="feature-description">
                     طراحی دستگاه‌ها با هدف افزایش سرعت، کاهش خطا و بهینه‌سازی
                     فرآیند بسته‌بندی.
                   </p>
                 </div>
               </div>
-              <div
-                class="flex cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform"
-              >
-                <div class="text-yellow-500">
+              <div class="feature-item">
+                <div class="feature-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-10 h-10"
                   >
                     <path
                       stroke-linecap="round"
@@ -844,9 +850,9 @@
                     />
                   </svg>
                 </div>
-                <div class="mr-4">
-                  <h2 class="font-IRANSansWeb_Bold">پشتیبانی و توسعه‌پذیری</h2>
-                  <p class="mt-2 leading-8">
+                <div class="feature-content">
+                  <h2 class="feature-title">پشتیبانی و توسعه‌پذیری</h2>
+                  <p class="feature-description">
                     امکان ارتقا، سفارشی‌سازی و پشتیبانی فنی برای رشد آینده
                     کسب‌وکار شما.
                   </p>
@@ -854,21 +860,20 @@
               </div>
             </div>
           </div>
-          <div class="col-span-12 lg:col-span-5">
-            <img src="../assets/images/pic-10.png" alt="" />
+          <div class="about-image-area">
+            <img
+              src="../assets/images/pic-10.png"
+              alt="تصویر دستگاه بسته‌بندی صنعتی"
+              class="about-image"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <!--
-    
-==========================
-
-Contact Us Section Start
-
-========================== 
--->
+    <!-- 
+    Contact Us Section 
+     -->
     <section class="contact-mini-section">
       <div class="contact-container">
         <div class="flex flex-col items-center justify-center mb-8">
@@ -924,10 +929,9 @@ Contact Us Section Start
     <!--
 ==========================
 
-Contact Us Section End
-
+    Header Section End  
+    
 ========================== 
-
 -->
 
     <!--
@@ -1113,9 +1117,6 @@ Footer Section End
 
 -->
 
-    <script src="../node_modules/swiper/swiper-bundle.min.js"></script>
-    <script src="./js/swiper.js"></script>
-    <script type="module" src="./js/main.js"></script>
-    <script src="./js/mobile-menu.js"></script>
+    <script src="./js/main.js" defer></script>
   </body>
 </html>

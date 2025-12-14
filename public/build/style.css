@@ -3679,7 +3679,6 @@ Contact Us Section Start
   overflow: hidden;
 }
 
-/* افکت پس زمینه صنعتی */
 .contact-mini-section::before {
   content: "";
   position: absolute;
@@ -3867,6 +3866,8 @@ Contact Us Section Start
   background: #cbd5e1;
 }
 
+
+
 .contact-description {
   color: #475569;
   margin-bottom: 30px;
@@ -4043,6 +4044,106 @@ Contact Us Section Start
     width: 15px;
   }
 }
+
+.contact-mini-section {
+  background-color: #f8f9fa; 
+  background-image: radial-gradient(
+      #c4d5e9 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      #c4d5e9 1px,
+      transparent 1px
+    );
+  background-size: 30px 30px; 
+  background-position: 0 0, 15px 15px;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.03);
+}
+
+
+.contact-mini-section::before {
+  content: "";
+  position: absolute;
+  top: -50px; 
+  right: -50px; 
+  width: 450px;
+  height: 450px; 
+  background: radial-gradient(
+    circle,
+    rgba(10, 102, 194, 0.25) 0%,
+    transparent 60%
+  );
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulse-move 35s infinite ease-in-out;
+}
+
+
+.contact-mini-section::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 193, 7, 0.15) 0%, 
+    transparent 60%
+  );
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulse-move-reverse 30s infinite ease-in-out;
+}
+
+
+.contact-mini-section {
+*/
+    background-image: 
+        linear-gradient(to right, #e0e9f4 1px, transparent 1px),
+        linear-gradient(to bottom, #e0e9f4 1px, transparent 1px),
+        radial-gradient(#c4d5e9 1px, transparent 1px),
+        radial-gradient(#c4d5e9 1px, transparent 1px);
+    background-size: 
+        40px 40px,
+        40px 40px, 
+        30px 30px, 
+        30px 30px;
+    background-position: 
+        0 0, 
+        0 0, 
+        0 0, 
+        15px 15px;
+
+}
+
+@keyframes pulse-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, 30px) scale(1.1); 
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pulse-move-reverse {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(25px, -25px) scale(0.9); 
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
 /* 
 
 ==========================
@@ -4052,3 +4153,214 @@ Contact Us Section End
 ==========================
 
 */
+/* متغیرهای اصلی (می‌توانید آنها را در ریشه CSS تعریف کنید) */
+:root {
+  --primary-color: #0a66c2; /* آبی تیره */
+  --secondary-color: #197adb; /* آبی روشن */
+  --highlight-color: #fcd34d; /* زرد */
+  --text-dark: #1e293b;
+  --text-medium: #475569;
+  --bg-light: #f8f9fa;
+}
+
+
+/* --- استایل دهی به بخش اصلی (About Section) --- */
+.about-section {
+  padding: 80px 0;
+  position: relative;
+  background-color: var(--bg-light);
+  /* اضافه کردن یک بافت گرید/نقطه‌ای ظریف برای پر کردن پس‌زمینه */
+  background-image: 
+      linear-gradient(to right, rgba(200, 200, 200, 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(200, 200, 200, 0.2) 1px, transparent 1px);
+  background-size: 40px 40px;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* --- استایل دهی به عنوان (Header) --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.header-title-wrapper {
+  display: inline-block;
+  position: relative;
+  /* شبه عنصر زرد رنگی که زیر عنوان بود */
+  padding-bottom: 15px;
+}
+
+.header-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.header-title-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background: var(--highlight-color);
+  border-radius: 3px;
+}
+
+.header-subtitle {
+  color: var(--text-medium);
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+/* --- استایل دهی به طرح‌بندی اصلی (Grid) --- */
+.about-content-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* موبایل: یک ستون */
+  gap: 40px;
+}
+
+@media (min-width: 1024px) { /* دسکتاپ (lg) */
+  .about-content-grid {
+    grid-template-columns: 7fr 5fr;
+    gap: 60px;
+    align-items: center; /* تراز کردن عمودی محتوا */
+  }
+  .about-text-area {
+    order: 1; /* متن در سمت راست (برای راست به چپ) */
+  }
+  .about-image-area {
+    order: 2; /* تصویر در سمت چپ (برای راست به چپ) */
+  }
+}
+
+/* --- استایل دهی به بخش متنی --- */
+.about-description {
+  line-height: 1.8;
+  color: var(--text-medium);
+  font-size: 16px;
+  margin-bottom: 40px;
+  border-right: 4px solid var(--highlight-color); /* یک خط زرد در کنار متن */
+  padding-right: 15px;
+  background-color: white; /* برای برجسته شدن در پس زمینه گرید */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+/* --- استایل دهی به بخش ویژگی‌ها (Features) --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) { /* تبلت (md) */
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+.feature-item {
+  display: flex;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid #e0e7ee;
+  transition: all 0.3s ease;
+  
+  /* افکت شناور (hover) */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(var(--primary-color-rgb, 10, 102, 194), 0.1);
+  border-color: var(--primary-color);
+}
+
+.feature-icon {
+  color: var(--highlight-color);
+  flex-shrink: 0;
+  margin-left: 15px;
+}
+
+.feature-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.feature-description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-medium);
+}
+
+
+/* --- استایل دهی به بخش تصویر (Image) --- */
+.about-image-area {
+  position: relative;
+  padding: 10px; /* فضای داخلی برای جلوه قاب */
+  background: linear-gradient(145deg, var(--primary-color), var(--secondary-color)); /* قاب گرادیان */
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* لبه‌های گرد داخلی */
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-image-area:hover .about-image {
+    transform: scale(1.03); /* افکت زوم ملایم روی hover */
+}
+
+/* --- رسپانسیو بودن موبایل --- */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 50px 0;
+  }
+  .header-title {
+    font-size: 28px;
+  }
+  .section-header {
+      margin-bottom: 40px;
+  }
+  .about-description {
+    font-size: 15px;
+  }
+  .feature-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  .feature-title {
+    font-size: 16px;
+  }
+  .feature-description {
+    font-size: 13px;
+  }
+}
