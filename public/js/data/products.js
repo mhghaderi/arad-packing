@@ -20,9 +20,16 @@ const productsData = {
     },
     description: `دستگاه بسته‌بندی PM50 مخصوص بسته‌بندی کیک و کلوچه با سرعت بالا و دقت فوق‌العاده. این دستگاه قابلیت بسته‌بندی انواع کیک‌های صنعتی، کاپ کیک، کیک صبحانه و کلوچه‌های مختلف را دارد.`,
     images: {
-      imagePath1: "../images/product-image/PM50/1.jpg",
-      imagePath2: "../images/product-image/PM50/2.jpg",
-      imagePath3: "../images/product-image/PM50/3.jpg",
+      thumbnails: {
+        default: "../images/product-image/PM50/thumbnail1.jpg",
+        hover: "../images/product-image/PM50/thumbnail2.jpg",
+      },
+      size: "../images/product-image/PM50/product-size.jpg",
+      gallery: [
+        "../images/product-image/PM50/1.jpg",
+        "../images/product-image/PM50/2.jpg",
+        "../images/product-image/PM50/3.jpg",
+      ],
     },
     videos: {
       videoPath1: "../assets/videos/product-videos/PM50/PM50.mp4",
@@ -511,4 +518,3 @@ const productsData = {
 };
 
 export default productsData;
-

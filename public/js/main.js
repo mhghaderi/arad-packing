@@ -1,35 +1,29 @@
-// import productsData from "./data/products.js";
-// const allProducts = productsData;
+import productsData from "./data/products.js";
 
-// منتظر لود کامل DOM
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM loaded, initializing scripts...");
+// ===============================
+// DOM READY
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("js is loaded");
 
-  // ===================
+  // ===============================
   // Swiper Initialization
-  // ===================
+  // ===============================
   if (typeof Swiper !== "undefined") {
-    // Main Slider
     if (document.querySelector(".main-slider")) {
       new Swiper(".main-slider", {
+        loop: true,
+        autoplay: { delay: 5000 },
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        loop: true,
-        autoplay: {
-          delay: 5000,
-        },
       });
-      console.log("Main slider initialized");
     }
 
-    // Category Slider
     if (document.querySelector(".cat-slider")) {
       new Swiper(".cat-slider", {
         loop: true,
-        slidesPerView: 3,
-        spaceBetween: 20,
         freeMode: true,
         speed: 5000,
         autoplay: {
@@ -37,122 +31,174 @@ document.addEventListener("DOMContentLoaded", function () {
           disableOnInteraction: false,
         },
         breakpoints: {
-          640: { slidesPerView: 2, spaceBetween: 15 },
-          768: { slidesPerView: 4, spaceBetween: 15 },
-          1024: { slidesPerView: 7, spaceBetween: 15 },
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 7 },
         },
       });
-      console.log("Category slider initialized");
     }
-
-    // بقیه Swiperها...
-  } else {
-    console.error("Swiper library is not loaded!");
   }
 
-  // ===================
-  // Typed.js Initialization
-  // ===================
+  // ===============================
+  // PRODUCT SIZE IMAGE (SINGLE PRODUCT PAGE - product.html)
+  // ===============================
+  const sizeImage = document.querySelector(".product-size-image");
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get("id");
 
+  if (sizeImage && productId && productsData[productId]?.images?.size) {
+    const product = productsData[productId];
+    sizeImage.src = product.images.size;
+    sizeImage.alt = `${product.title} - ابعاد محصول`;
+    sizeImage.loading = "lazy";
+    sizeImage.decoding = "async";
+  }
 
-  // ===================
-  // Product Cards Generation
-  // ===================
-  const container = document.getElementById("products-container");
-  if (container && window.allProducts) {
-    // کد تولید کارت محصولات
-    window.allProducts.forEach((product, index) => {
-      // ...
+  // ===============================
+  // PRODUCT CARD THUMBNAILS (LIST PAGE)
+  // ===============================
+  document.querySelectorAll(".product-card").forEach((card) => {
+    const id = card.dataset.product;
+    const data = productsData[id];
+    if (!data) return;
+
+    const thumb = card.querySelector(".product-thumb");
+    if (!thumb) return;
+
+    thumb.src = data.images.thumbnails?.default || data.images.imagePath1;
+    thumb.alt = data.name || data.title;
+    thumb.loading = "lazy";
+    thumb.decoding = "async";
+
+    card.addEventListener("mouseenter", () => {
+      if (data.images.thumbnails?.hover) {
+        thumb.src = data.images.thumbnails.hover;
+      }
     });
-    console.log("Product cards generated");
-  }
 
-  // ===================
-  // Mobile Menu Function
-  // ===================
-  window.toggleMobileDropdown = function (el) {
-    const parentLi = el.closest("li");
-    const submenu = parentLi.querySelector(".mobile-submenu");
-    const arrow = el.querySelector(".mobile-arrow");
+    card.addEventListener("mouseleave", () => {
+      thumb.src = data.images.thumbnails?.default || data.images.imagePath1;
+    });
 
-    if (!submenu) return;
-
-    submenu.classList.toggle("hidden");
-
-    if (arrow) {
-      arrow.classList.toggle("rotate-180");
-    }
-  };
-});
-
-window.toggleMobileDropdown = toggleMobileDropdown;
-
-// ===================
-// Product Cards Generation Start
-// ===================
-const container = document.getElementById("products-container");
-
-allProducts.forEach((product, index) => {
-  const card = document.createElement("div");
-  card.className = "product-card";
-  card.dataset.model = product.name;
-
-  card.innerHTML = `
-       <div class="bg-white transform hover:-translate-y-1 duration-300 transition-transform shadow-md">
-              <div>
-                  <a href="#"><img src="../assets/images/product-image/PM50/cover.jpeg" alt="aaaaa"></a>
-              
-              </div>
-              <div class="p-4 leading-8">
-                  <h2 class="font-IRANSansWeb_Bold"><a href="single-page.html">${
-                    allProducts[index].name
-                  }</a></h2>
-                  <p>${allProducts[index].description.slice(0, 110)}..</p>
-              </div>
-              <div class="p-4 text-xs flex items-center justify-between border-t border-dashed">
-                  <div class="flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-                        </svg>
-                        
-                      <span class="mr-1"><a href="blog.html">${
-                        allProducts[index].category
-                      }</a></span>                                  
-                  </div>
-                  
-                                                        
-                  <div class="mr-1"><a href="single-page.html">مشاهده بیشتر</a></div>                                  
-                  
-              </div>
-          </div>
-    `;
-
-  card.addEventListener("click", () => {
-    window.location.href = `single-product.html?model=${product.name}`;
+    card.addEventListener("click", () => {
+      window.location.href = `product.html?id=${id}`;
+    });
   });
 
-  container.appendChild(card);
+  // ===============================
+  // PRODUCTS LIST PAGE (DYNAMIC CREATION)
+  // ===============================
+  const productsContainer = document.getElementById("products-container");
+
+  if (productsContainer) {
+    const productsArray = Object.values(productsData);
+
+    productsArray.forEach((product) => {
+      const card = document.createElement("div");
+      card.className = "product-card cursor-pointer";
+
+      card.innerHTML = `
+        <div class="bg-white shadow-md hover:-translate-y-1 transition-transform duration-300 h-full flex flex-col">
+          <img
+            src="${product.images.imagePath1}"
+            alt="${product.name}"
+            class="w-full h-48 object-cover product-thumb"
+          />
+          <div class="p-4 flex-1">
+            <h2 class="font-IRANSansWeb_Bold text-lg mb-2">
+              ${product.name}
+            </h2>
+            <p class="text-sm text-stone-600">
+              ${product.description.slice(0, 100)}...
+            </p>
+          </div>
+          <div class="p-4 text-xs flex items-center justify-between border-t border-dashed">
+            <span>${product.category}</span>
+            <span class="text-yellow-600">مشاهده بیشتر</span>
+          </div>
+        </div>
+      `;
+
+      card.addEventListener("click", () => {
+        window.location.href = `product.html?id=${product.id || product.slug}`;
+      });
+
+      productsContainer.appendChild(card);
+    });
+  }
+
+  // ===============================
+  // SINGLE PRODUCT PAGE (single-product.html با slug)
+  // ===============================
+  const specsContainer = document.getElementById("product-specs");
+
+  if (specsContainer) {
+    const slug = params.get("slug");
+
+    if (slug) {
+      const product = Object.values(productsData).find(
+        (item) => item.slug === slug
+      );
+
+      if (!product) {
+        document.body.innerHTML = "محصول مورد نظر یافت نشد";
+        return;
+      }
+
+      // Specs
+      const specs = [
+        product.name,
+        product.category,
+        product.space?.speed,
+        product.space?.powerConsumption,
+        product.space?.workingVoltage,
+        product.space?.weight,
+      ].filter(Boolean); // حذف مقادیر undefined
+
+      specs.forEach((value) => {
+        const row = document.createElement("div");
+        row.className = "bg-stone-100 flex items-center";
+
+        row.innerHTML = `
+          <div class="bg-yellow-500 p-2 w-10 text-center">✔</div>
+          <div class="mr-2">${value}</div>
+        `;
+
+        specsContainer.appendChild(row);
+      });
+
+      // Description
+      const desc = document.getElementById("product-description");
+      if (desc) {
+        desc.textContent = product.description;
+      }
+
+      // Images
+      const gallery = document.getElementById("product-gallery");
+      if (gallery) {
+        Object.values(product.images || {}).forEach((src) => {
+          if (typeof src === "string") {
+            const img = document.createElement("img");
+            img.src = src;
+            img.className = "w-full rounded-lg mb-4";
+            gallery.appendChild(img);
+          }
+        });
+      }
+
+      // Video
+      const video = document.getElementById("product-video");
+      if (video && product.videos) {
+        video.src = Object.values(product.videos)[0];
+      }
+    }
+  }
 });
-// ===================
-// Product Cards Generation Start
-// ===================
 
-// ===================
-// Mobile  Dropdown Menu Start
-// ===================
-function toggleMobileDropdown(element) {
-  const submenu = element.nextElementSibling;
-
-  const arrow = element.querySelector(".mobile-arrow");
-
-  submenu.classList.toggle("open");
-
-  arrow.classList.toggle("rotate-180");
-}
-// ===================
-// Mobile  Dropdown Menu End
-// ===================
-function toggleMobileDropdown(el) {
+// ===============================
+// MOBILE DROPDOWN
+// ===============================
+window.toggleMobileDropdown = function (el) {
   const parentLi = el.closest("li");
   const submenu = parentLi.querySelector(".mobile-submenu");
   const arrow = el.querySelector(".mobile-arrow");
@@ -160,8 +206,5 @@ function toggleMobileDropdown(el) {
   if (!submenu) return;
 
   submenu.classList.toggle("hidden");
-
-  if (arrow) {
-    arrow.classList.toggle("rotate-180");
-  }
-}
+  arrow?.classList.toggle("rotate-180");
+};
