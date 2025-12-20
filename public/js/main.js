@@ -88,44 +88,86 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   // PRODUCTS LIST PAGE (DYNAMIC CREATION)
   // ===============================
-  const productsContainer = document.getElementById("products-container");
+  // const productsContainer = document.getElementById("products-container");
 
-  if (productsContainer) {
-    const productsArray = Object.values(productsData);
+  // if (productsContainer) {
+  //   const productsArray = Object.values(productsData);
 
-    productsArray.forEach((product) => {
-      const card = document.createElement("div");
-      card.className = "product-card cursor-pointer";
+  //   productsArray.forEach((product) => {
+  //     const card = document.createElement("div");
+  //     card.className = "product-card cursor-pointer";
 
-      card.innerHTML = `
-        <div class="bg-white shadow-md hover:-translate-y-1 transition-transform duration-300 h-full flex flex-col">
-          <img
-            src="${product.images.imagePath1}"
-            alt="${product.name}"
-            class="w-full h-48 object-cover product-thumb"
-          />
-          <div class="p-4 flex-1">
-            <h2 class="font-IRANSansWeb_Bold text-lg mb-2">
-              ${product.name}
-            </h2>
-            <p class="text-sm text-stone-600">
-              ${product.description.slice(0, 100)}...
-            </p>
-          </div>
-          <div class="p-4 text-xs flex items-center justify-between border-t border-dashed">
-            <span>${product.category}</span>
-            <span class="text-yellow-600">مشاهده بیشتر</span>
-          </div>
-        </div>
-      `;
+  //     card.innerHTML = `
+  //       <div class="bg-white shadow-md hover:-translate-y-1 transition-transform duration-300 h-full flex flex-col">
+  //         <img
+  //           src="${product.images.imagePath1}"
+  //           alt="${product.name}"
+  //           class="w-full h-48 object-cover product-thumb"
+  //         />
+  //         <div class="p-4 flex-1">
+  //           <h2 class="font-IRANSansWeb_Bold text-lg mb-2">
+  //             ${product.name}
+  //           </h2>
+  //           <p class="text-sm text-stone-600">
+  //             ${product.description.slice(0, 100)}...
+  //           </p>
+  //         </div>
+  //         <div class="p-4 text-xs flex items-center justify-between border-t border-dashed">
+  //           <span>${product.category}</span>
+  //           <span class="text-yellow-600">مشاهده بیشتر</span>
+  //         </div>
+  //       </div>
+  //     `;
 
-      card.addEventListener("click", () => {
-        window.location.href = `product.html?id=${product.id || product.slug}`;
-      });
+  //     card.addEventListener("click", () => {
+  //       window.location.href = `product.html?id=${product.id || product.slug}`;
+  //     });
 
-      productsContainer.appendChild(card);
-    });
-  }
+  //     productsContainer.appendChild(card);
+  //   });
+  // }
+
+  //   const categoriesBox = document.getElementById("products-container");
+
+  // const fetchCategories = async () => {
+  //   const res = await fetch("https://api.aradpacking.com/v1/categories");
+  //   const data = await res.json();
+  //   return data;
+  // };
+
+  // const renderCategories = (categories) => {
+  //   categoriesBox.innerHTML = "";
+
+  //   categories.forEach(cat => {
+  //     categoriesBox.innerHTML += `
+  //       <a href="products.html?category=${encodeURIComponent(cat.slug)}"
+  //          class="category-card">
+  //         ${cat.title}
+  //       </a>
+  //     `;
+  //   });
+  // };
+
+  // const init = async () => {
+  //   const categories = await fetchCategories();
+  //   renderCategories(categories);
+  // };
+
+  // init();
+
+  // fetch("https://api.aradpacking.com/v1/categories")
+  //   .then((res) => res.json())
+  //   .then((categories) => {
+  //     const box = document.getElementById("products-container");
+
+  //     categories.forEach((cat) => {
+  //       box.innerHTML += `
+  //       <a href="products.html?cat=${encodeURIComponent(cat.slug)}">
+  //         ${cat.name}
+  //       </a>
+  //     `;
+  //     });
+  //   });
 
   // ===============================
   // SINGLE PRODUCT PAGE (single-product.html با slug)
@@ -208,3 +250,26 @@ window.toggleMobileDropdown = function (el) {
   submenu.classList.toggle("hidden");
   arrow?.classList.toggle("rotate-180");
 };
+
+//==============================
+// const params = new URLSearchParams(window.location.search);
+// const categorySlug = params.get("cat");
+// fetch(
+//   `https://api.aradpacking.com/v1/categories/${encodeURIComponent(
+//     categorySlug
+//   )}`
+// )
+//   .then((res) => res.json())
+//   .then((data) => {
+//     document.getElementById("title").innerText = data.category.title;
+
+//     const box = document.getElementById("products-container");
+
+//     data.products.forEach((p) => {
+//       box.innerHTML += `
+//         <div>
+//           <h3>${p.title}</h3>
+//         </div>
+//       `;
+//     });
+//   });
