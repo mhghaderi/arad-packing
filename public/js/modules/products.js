@@ -19,10 +19,16 @@ function renderProducts(products) {
   box.innerHTML = "";
 
   products.forEach((p) => {
-    // عکس محصول (الان خالیه → fallback)
-    const img = p.images?.productCoverImage?.imagePath
-      ? p.images.productCoverImage.imagePath
-      : "../assets/images/placeholder.jpg";
+    const img =
+      "https://api.aradpacking.com/" +
+      (p.images?.productCoverImage?.imagePath
+        ? p.images.productCoverImage.imagePath
+        : "../assets/images/placeholder.jpg");
+    console.log(img);
+
+    // const img = p.images?.productCoverImage?.imagePath
+    //   ? p.images.productCoverImage.imagePath
+    //   : "../assets/images/placeholder.jpg";
 
     box.innerHTML += `
       <a href="product.html?slug=${encodeURIComponent(p.slug)}"
