@@ -172,6 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   // SINGLE PRODUCT PAGE (single-product.html با slug)
   // ===============================
+
+  
   const specsContainer = document.getElementById("product-specs");
 
   if (specsContainer) {
@@ -250,26 +252,3 @@ window.toggleMobileDropdown = function (el) {
   submenu.classList.toggle("hidden");
   arrow?.classList.toggle("rotate-180");
 };
-
-//==============================
-// const params = new URLSearchParams(window.location.search);
-// const categorySlug = params.get("cat");
-// fetch(
-//   `https://api.aradpacking.com/v1/categories/${encodeURIComponent(
-//     categorySlug
-//   )}`
-// )
-//   .then((res) => res.json())
-//   .then((data) => {
-//     document.getElementById("title").innerText = data.category.title;
-
-//     const box = document.getElementById("products-container");
-
-//     data.products.forEach((p) => {
-//       box.innerHTML += `
-//         <div>
-//           <h3>${p.title}</h3>
-//         </div>
-//       `;
-//     });
-//   });
